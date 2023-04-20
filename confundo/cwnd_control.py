@@ -2,7 +2,7 @@
 # Copyright 2019 Alex Afanasyev
 #
 
-from common import *
+from .common import *
 
 
 class CwndControl:
