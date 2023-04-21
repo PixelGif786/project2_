@@ -190,7 +190,7 @@ class Socket:
         self.expectFinAck()
 
     def sendSynPacket(self):
-        synPkt = Packet(seqNum=self.seqNum, connId=self.connId, isSyn=True)
+        synPkt = Packet(seqNum=self.seqNum, connIdconnId=+1, isSyn=True)
         ### UPDATE CORRECTLY HERE
         self.seqNum += 1
         self._send(synPkt)
