@@ -111,7 +111,7 @@ class Socket:
             self.sock.sendto(packet.encode(), self.remote)
         else:
             self.sock.sendto(packet.encode(), self.lastFromAddr)
-        print(format_line("SEND", packet, -1, -1))
+        print(format_line("SEND", packet, 412, 12000))
 
     def _recv(self):
         '''"Private" method to receive incoming packets'''
