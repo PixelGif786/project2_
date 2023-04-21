@@ -32,7 +32,7 @@ class Socket:
         self.sock.settimeout(0.5)
         self.timeout = 10
 
-        self.base = 12345
+        self.base = 50000
         self.seqNum = self.base
 
         self.inSeq = inSeq
