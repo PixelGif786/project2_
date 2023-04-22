@@ -111,7 +111,7 @@ class Socket:
             self.sock.sendto(packet.encode(), self.remote)
         else:
             self.sock.sendto(packet.encode(), self.lastFromAddr)
-        print(format_line("SEND", packet, 412, 12000))
+        print(format_line("SEND", packet, -1, -1))
 
     def _recv(self):
         '''"Private" method to receive incoming packets'''
@@ -193,7 +193,7 @@ class Socket:
         synPkt = Packet(seqNum=self.seqNum, connId=self.connId, isSyn=True)
         ### UPDATE CORRECTLY HERE
         if self.seqNum == 50000:
-            self.seqNum = 1
+            self.seqNum = 0
         self._send(synPkt)
 
     def expectSynAck(self):
