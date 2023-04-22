@@ -129,12 +129,12 @@ class Socket:
         outPkt = None
         if inPkt.isSyn:
             ### UPDATE CORRECTLY HERE
-            self.inSeq = inPkt.seqNum + 1
+            self.inSeq = 0 #####################################################
             if inPkt.connId != 0:
                 self.connId = inPkt.connId
             self.synReceived = True
 
-            outPkt = Packet(seqNum=self.seqNum, ackNum=self.inSeq, connId=self.connId, isAck=True)
+            outPkt = Packet(seqNum= 0, ackNum=self.inSeq, connId=self.connId, isAck=True)###############################
 
         elif inPkt.isFin:
             if self.inSeq == inPkt.seqNum: # all previous packets has been received, so safe to advance
