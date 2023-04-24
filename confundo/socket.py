@@ -222,7 +222,7 @@ class Socket:
             pkt = self._recv()
             if pkt and pkt.isAck and pkt.ackNum == self.seqNum:
                 self.base = self.seqNum
-                self.state = State.CLOSED
+                self.state = State.FIN_WAIT
                 break
             if time.time() - startTime > GLOBAL_TIMEOUT:
                 return
