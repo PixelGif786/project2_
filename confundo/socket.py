@@ -222,7 +222,7 @@ class Socket:
             pkt = self._recv()
             if pkt and pkt.isAck and pkt.ackNum == self.seqNum:
                 self.base = self.seqNum
-                self.state = State.FIN_WAIT
+                self.state = State.CLOSED
                 break
             if time.time() - startTime > GLOBAL_TIMEOUT:
                 return
@@ -263,7 +263,7 @@ class Socket:
         startTime = time.time()
         while len(self.outBuffer) > 0:
             toSend = self.outBuffer[:MTU]
-            pkt = Packet(seqNum=self.base, connId=self.connId, payload=toSend)
+            pkt = Packet(seqNum=self.base, connId=self.connId, payload=toSend, isDup=False)
             ### UPDATE CORRECTLY HERE
             self.seqNum = self.base+ len(toSend)
             self._send(pkt)
