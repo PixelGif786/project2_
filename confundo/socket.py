@@ -217,7 +217,7 @@ class Socket:
 
     def expectFinAck(self):
         ### MAY NEED FIXES IN THIS METHOD
-        startTime = FIN_WAIT_TIME
+        startTime = time.time()
         while True:
             pkt = self._recv()
             if pkt and pkt.isAck and pkt.ackNum == self.seqNum:
