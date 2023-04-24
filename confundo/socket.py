@@ -263,7 +263,7 @@ class Socket:
         startTime = time.time()
         while len(self.outBuffer) > 0:
             toSend = self.outBuffer[:MTU]
-            pkt = Packet(seqNum=self.base, connId=self.connId, payload=toSend, isDup=False)
+            pkt = Packet(seqNum=self.base, connId=self.connId, payload=toSend, isDup=True)
             ### UPDATE CORRECTLY HERE
             self.seqNum = self.base+ len(toSend)
             self._send(pkt)
